@@ -1,7 +1,7 @@
-import { Divider, Flex, Text, Heading, Avatar } from "@chakra-ui/react";
+import { Divider, Flex, Text, Heading, Avatar, Image } from "@chakra-ui/react";
 import { IconButton } from "@chakra-ui/react"; // Remove curly braces
 import logo from "../assets/logoSquare.webp";
-import { FiHome, FiFileText } from "react-icons/fi";
+import logoRectangle from "../assets/logoRectangle.webp";
 import {
   BiHome,
   BiBox,
@@ -19,13 +19,17 @@ const SideBar = () => {
       left="5"
       h="100vh"
       marginTop="0"
-      boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.20)"
+      boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.10)"
       borderRadius="0px"
       w="200px"
       flexDir="column"
       justifyContent="space-between"
     >
-      <Flex p="5%" flexDir="column" alignItems="flex-start" as="nav">
+      <Flex mb={1} p="2%" flexDir="column" alignItems="flex-start">
+        <Image src={logoRectangle} />
+        <Divider display="flex" />
+      </Flex>
+      <Flex p="5%" flexGrow={1} flexDirection="column" alignItems="flex-start" as="nav">
         <NavItem icon={BiHome} title="Overview" active />
         <NavItem icon={BiBox} title="Projects" />
         <NavItem icon={BiCalculator} title="Calculator" />
@@ -39,7 +43,7 @@ const SideBar = () => {
           <Avatar size="sm" src={logo} />
           <Flex flexDir="column" ml={4} display="flex">
             <Heading as="h3" size="sm">
-              Stefano Campanella
+              Stefano C
             </Heading>
             <Text color="grey">Admin</Text>
           </Flex>

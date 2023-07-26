@@ -24,7 +24,7 @@ function App() {
         <Sidebar />
       </GridItem>
       <GridItem gridArea="main" backgroundColor="#f0f5fa">
-        Main
+        Main Content Area
       </GridItem>
     </Grid>
   );
