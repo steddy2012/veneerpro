@@ -2,8 +2,13 @@ import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import Sidebar from "./components/SideBar";
 import Overview from "./components/pages/Overview";
+import Projects from "./components/pages/Projects";
+import { useState } from "react";
+
 
 function App() {
+  const [activePage, setActivePage] = useState("Overview");
+
   return (
     <Grid
       templateColumns={{ base: "1fr", lg: "200px 1fr" }}
@@ -25,7 +30,8 @@ function App() {
         <Sidebar />
       </GridItem>
       <GridItem gridArea="main" backgroundColor="#f0f5fa">
-        <Overview />
+        {activePage === "Overview" && <Overview />}
+        {activePage === "Projects" && <Projects />}
       </GridItem>
     </Grid>
   );

@@ -13,6 +13,7 @@ import React, { useState } from "react";
 import NavItem from "./NavItem";
 
 const SideBar = () => {
+  const [activePage, setActivePage] = useState("Overview"); // Initialize the active page to "Overview"
   return (
     <Flex
       pos="sticky"
@@ -26,15 +27,15 @@ const SideBar = () => {
       justifyContent="space-between"
     >
       <Flex mb={1} p="2%" flexDir="column" alignItems="flex-start">
-        <Image src={logoRectangle} />
+        <Image src={logoRectangle} alt="VeneerPro logo"/>
         <Divider display="flex" />
       </Flex>
       <Flex p="5%" flexGrow={1} flexDirection="column" alignItems="flex-start" as="nav">
-        <NavItem icon={BiHome} title="Overview" active />
-        <NavItem icon={BiBox} title="Projects" />
-        <NavItem icon={BiCalculator} title="Calculator" />
-        <NavItem icon={BiBarChartSquare} title="Reports" />
-        <NavItem icon={BiCog} title="Settings" />
+        <NavItem icon={BiHome} title="Overview" active={activePage === "Overview"} setActivePage={setActivePage} />
+        <NavItem icon={BiBox} title="Projects" active={activePage === "Projects"} setActivePage={setActivePage} />
+        <NavItem icon={BiCalculator} title="Calculator" active={activePage === "Calculator"} setActivePage={setActivePage} />
+        <NavItem icon={BiBarChartSquare} title="Reports" active={activePage === "Reports"} setActivePage={setActivePage} />
+        <NavItem icon={BiCog} title="Settings" active={activePage === "Settings"} setActivePage={setActivePage} />
       </Flex>
 
       <Flex p="5%" flexDir="column" w="100%" alignItems="flex-start" mb={4}>

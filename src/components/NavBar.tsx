@@ -1,5 +1,4 @@
 import { HStack, Image, Spacer, Text } from "@chakra-ui/react";
-import ColorModeSwitch from "./ColorModeSwitch";
 
 const NavBar = () => {
   return (
@@ -10,7 +9,6 @@ const NavBar = () => {
         </Text>
       </HStack>
       <Spacer />
-      <ColorModeSwitch />
     </HStack>
   );
 };

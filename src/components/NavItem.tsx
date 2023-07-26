@@ -13,9 +13,10 @@ interface NavItemProps {
   title: string;
   icon: any;
   active: any;
+  setActivePage: (page: string) => void;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ title, icon, active }) => {
+const NavItem: React.FC<NavItemProps> = ({ title, icon, active, setActivePage }) => {
   return (
     <Flex mt={30} flexDir="column" w="100%" alignItems="flex-start">
       <Menu placement="right">
@@ -27,12 +28,16 @@ const NavItem: React.FC<NavItemProps> = ({ title, icon, active }) => {
           p={3}
           borderRadius={8}
           _hover={{
-            textColor: "#0950e9",
-            backgroundColor: "#f0f5fa",
+            textColor: active ? "white" : "#0950e9", // Change text color to blue for non-active items on hover
+            backgroundColor: active ? "#0950e9" : "#f0f5fa", // Use blue background only for non-active items on hover
             "& svg": {
-              color: active ? "white" : "#0950e9", // Change icon color to blue on hover when not active
+              color: active ? "white" : "#0950e9", // Change icon color to blue for non-active items on hover
             },
           }}
+          _active={{
+            backgroundColor: "#0950e9", // Keep blue background on active item even when clicked
+          }}
+          onClick={() => setActivePage(title)} // Set the active page when the item is clicked
           w="100%"
         >
           <MenuButton w="100%">
