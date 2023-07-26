@@ -1,6 +1,7 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import Sidebar from "./components/SideBar";
+import Overview from "./components/pages/Overview";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
         <Sidebar />
       </GridItem>
       <GridItem gridArea="main" backgroundColor="#f0f5fa">
-        Main Content Area
+        <Overview />
       </GridItem>
     </Grid>
   );
