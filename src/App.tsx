@@ -1,37 +1,37 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
+import Header from "./components/Header";
 import Sidebar from "./components/SideBar";
 import Overview from "./components/pages/Overview";
 import Projects from "./components/pages/Projects";
 import { useState } from "react";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [activePage, setActivePage] = useState("Overview");
+  const [activePage, setActivePage] = useState<string>("Overview");
 
   return (
     <Grid
       templateColumns={{ base: "1fr", lg: "200px 1fr" }}
-      templateRows={{ base: "200px 1fr", lg: "auto 1fr" }} // Set the main section to take up auto for mobile and 1fr for large screens
+      templateRows={{ base: "200px 1fr", lg: "auto 1fr" }}
       templateAreas={{
         base: `"nav" "main"`,
         lg: `"sidebar nav" "sidebar main"`,
-      }} // Place the sidebar before the nav in the large screen layout
+      }}
       h="100vh"
     >
       <GridItem gridArea="nav">
-        {" "}
-        {/* Add background color to see the navbar area */}
-        <NavBar />
+        <Header />
       </GridItem>
       <GridItem gridArea="sidebar">
-        {" "}
-        {/* Add background color to see the sidebar area */}
         <Sidebar />
       </GridItem>
       <GridItem gridArea="main" backgroundColor="#f0f5fa">
-        {activePage === "Overview" && <Overview />}
-        {activePage === "Projects" && <Projects />}
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Overview />} />
+            <Route path="/projects" element={<Projects />} />
+          </Routes>
+        </BrowserRouter>
       </GridItem>
     </Grid>
   );

@@ -8,6 +8,7 @@ import {
   MenuButton,
   MenuList,
 } from "@chakra-ui/react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 interface NavItemProps {
   title: string;
@@ -16,7 +17,12 @@ interface NavItemProps {
   setActivePage: (page: string) => void;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ title, icon, active, setActivePage }) => {
+const NavItem: React.FC<NavItemProps> = ({
+  title,
+  icon,
+  active,
+  setActivePage,
+}) => {
   return (
     <Flex mt={30} flexDir="column" w="100%" alignItems="flex-start">
       <Menu placement="right">
