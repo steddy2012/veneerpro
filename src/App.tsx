@@ -1,40 +1,20 @@
-import { Grid, GridItem, Show } from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
-import Sidebar from "./components/SideBar";
-import Overview from "./components/pages/Overview";
-import Projects from "./components/pages/Projects";
-import { useState } from "react";
+import { Routes, Route } from 'react-router-dom';
+import Dashboard from 'src/pages/Dashboard';
 
+// path is the url path and element is just a react component, should be the from the pages folder
 
-function App() {
-  const [activePage, setActivePage] = useState("Overview");
-
+const App = () => {
   return (
-    <Grid
-      templateColumns={{ base: "1fr", lg: "200px 1fr" }}
-      templateRows={{ base: "200px 1fr", lg: "auto 1fr" }} // Set the main section to take up auto for mobile and 1fr for large screens
-      templateAreas={{
-        base: `"nav" "main"`,
-        lg: `"sidebar nav" "sidebar main"`,
-      }} // Place the sidebar before the nav in the large screen layout
-      h="100vh"
-    >
-      <GridItem gridArea="nav">
-        {" "}
-        {/* Add background color to see the navbar area */}
-        <NavBar />
-      </GridItem>
-      <GridItem gridArea="sidebar">
-        {" "}
-        {/* Add background color to see the sidebar area */}
-        <Sidebar />
-      </GridItem>
-      <GridItem gridArea="main" backgroundColor="#f0f5fa">
-        {activePage === "Overview" && <Overview />}
-        {activePage === "Projects" && <Projects />}
-      </GridItem>
-    </Grid>
+    <Routes>
+      <Route path='/' element={<div>Home</div>} />
+
+      {/* If the url path starts with /dashboard it will go to this route  */}
+      <Route path='/dashboard/*' element={<Dashboard />} />
+
+      {/* Can add other routes here:  */}
+      <Route path='/login' element={<div>Login</div>} />
+    </Routes>
   );
-}
+};
 
 export default App;
