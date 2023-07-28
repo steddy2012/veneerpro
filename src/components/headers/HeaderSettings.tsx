@@ -7,7 +7,11 @@ const HeaderSettings = () => {
   const { pathname } = useLocation();
 
   return (
-    <HStack justifyContent="space-between" padding="15px">
+    <HStack
+      justifyContent="space-between"
+      padding="15px"
+      backgroundColor="white"
+    >
       <HStack
         spacing="20px"
         whiteSpace="nowrap"

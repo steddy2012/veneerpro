@@ -1,6 +1,7 @@
 import { HStack, Image, Spacer, Text } from "@chakra-ui/react";
-import ColorModeSwitch from "./ColorModeSwitch";
+
 import { useLocation } from "react-router-dom";
+import ColorModeSwitch from "../ColorModeSwitch";
 
 const Header = () => {
   const { pathname } = useLocation(); // this line uses the pathname in the url to highlight the sidebar tabs: /dashboard/overview. if it matches it highlights

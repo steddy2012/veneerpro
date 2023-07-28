@@ -1,6 +1,6 @@
 import { HStack, Spacer } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
-import HeaderItem from "./HeaderItem";
+import HeaderItem from "../headers/HeaderItem";
 
 const HeaderProjects = () => {
   const { pathname } = useLocation(); // this line uses the pathname in the url to highlight the sidebar tabs: /dashboard/overview. if it matches it highlights

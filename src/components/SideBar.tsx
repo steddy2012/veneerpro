@@ -1,5 +1,4 @@
 import { Divider, Flex, Text, Heading, Avatar, Image } from "@chakra-ui/react";
-
 import logo from "../assets/logoSquare.webp";
 import logoRectangle from "../assets/logoRectangle.webp";
 import {
@@ -10,11 +9,18 @@ import {
   BiCog,
 } from "react-icons/bi";
 import SBItem from "./SBItem";
-
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const SideBar = ({}) => {
-  const { pathname } = useLocation(); // this line uses the pathname in the url to highlight the sidebar tabs: /dashboard/overview. if it matches it highlights
+const SideBar = () => {
+  const { pathname } = useLocation();
+  const [activeProjects, setActiveProjects] = useState(false);
+  const [activeSettings, setActiveSettings] = useState(false);
+
+  useEffect(() => {
+    setActiveProjects(pathname === "/dashboard/projects");
+    setActiveSettings(pathname === "/dashboard/settings");
+  }, [pathname]);
 
   return (
     <Flex
@@ -48,8 +54,11 @@ const SideBar = ({}) => {
         <SBItem
           icon={BiBox}
           title="Projects"
-          active={pathname === "/dashboard/projects"}
-          href="/dashboard/projects"
+          active={
+            pathname === "/dashboard/projects/incomplete" ||
+            pathname === "/dashboard/projects/completed"
+          }
+          href="/dashboard/projects/incomplete"
         />
         <SBItem
           icon={BiCalculator}
@@ -66,11 +75,16 @@ const SideBar = ({}) => {
         <SBItem
           icon={BiCog}
           title="Settings"
-          active={pathname === "/dashboard/settings"}
-          href="/dashboard/settings"
+          active={
+            pathname === "/dashboard/settings/userProfile" ||
+            pathname === "/dashboard/settings/companyProfile" ||
+            pathname === "/dashboard/settings/team" ||
+            pathname === "/dashboard/settings/subscriptions" ||
+            pathname === "/dashboard/settings/purchases"
+          }
+          href="/dashboard/settings/userProfile"
         />
       </Flex>
-
       <Flex p="5%" flexDir="column" w="100%" alignItems="flex-start" mb={4}>
         <Divider display="flex" />
         <Flex mt={4} align="center">

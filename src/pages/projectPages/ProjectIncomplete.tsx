@@ -1,6 +1,7 @@
-import { Grid, GridItem } from "@chakra-ui/react"; // Assuming you're using Chakra UI or import from your chosen UI library
+import { Grid, GridItem, Heading } from "@chakra-ui/react";
+import React from "react";
 
-const Projects = () => {
+const ProjectIncomplete = () => {
   return (
     <Grid
       h="100%"
@@ -38,4 +39,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectIncomplete;
