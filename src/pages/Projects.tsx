@@ -1,21 +1,40 @@
-import { Flex, Heading, Text } from '@chakra-ui/react'; // Assuming you're using Chakra UI or import from your chosen UI library
+import { Grid, GridItem } from "@chakra-ui/react"; // Assuming you're using Chakra UI or import from your chosen UI library
 
 const Projects = () => {
   return (
-    <Flex p='4' flexDirection='column'>
-      <Heading as='h1' size='xl' mb='4'>
-        Projects Page
-      </Heading>
-      <Text fontSize='lg'>
-        Welcome to the projects page! This is where you can provide an projects
-        of your application or project.
-      </Text>
-      <Text mt='4'>
-        You can add any relevant information, charts, statistics, or anything
-        else you want to showcase here.
-      </Text>
-      {/* Add more content and components as needed */}
-    </Flex>
+    <Grid
+      h="100%"
+      templateRows="repeat(1, 1fr)"
+      templateColumns="repeat(4, 1fr)"
+      gap={4}
+    >
+      <GridItem
+        marginLeft={8}
+        marginRight={1}
+        marginTop={8}
+        marginBottom={8}
+        p={4}
+        colSpan={2}
+        bg="white"
+        borderRadius="2xl"
+        boxShadow="lg"
+      >
+        1
+      </GridItem>
+      <GridItem
+        marginLeft={1}
+        marginRight={8}
+        marginTop={8}
+        marginBottom={8}
+        p={4}
+        colSpan={2}
+        bg="white"
+        borderRadius="2xl"
+        boxShadow="lg"
+      >
+        2
+      </GridItem>
+    </Grid>
   );
 };
 

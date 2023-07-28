@@ -1,21 +1,56 @@
-import { Flex, Heading, Text } from '@chakra-ui/react'; // Assuming you're using Chakra UI or import from your chosen UI library
+import { Flex, Grid, GridItem, Heading, Text } from "@chakra-ui/react"; // Assuming you're using Chakra UI or import from your chosen UI library
+import Tab1 from "src/components/overview/OverviewTab1";
+import Tab2 from "src/components/overview/OverviewTab2";
+import Tab3 from "src/components/overview/OverviewTab3";
 
 const Overview = () => {
   return (
-    <Flex p='4' flexDirection='column'>
-      <Heading as='h1' size='xl' mb='4'>
-        Overview Page
-      </Heading>
-      <Text fontSize='lg'>
-        Welcome to the Overview page! This is where you can provide an overview
-        of your application or project.
-      </Text>
-      <Text mt='4'>
-        You can add any relevant information, charts, statistics, or anything
-        else you want to showcase here.
-      </Text>
-      {/* Add more content and components as needed */}
-    </Flex>
+    <Grid
+      h="100%"
+      templateRows="repeat(2, 1fr)"
+      templateColumns="repeat(4, 1fr)"
+      gap={4}
+    >
+      <GridItem
+        marginLeft={8}
+        marginRight={1}
+        marginTop={8}
+        marginBottom={1}
+        p={4}
+        colSpan={2}
+        bg="white"
+        borderRadius="2xl"
+        boxShadow="lg"
+      >
+        <Tab1 />
+      </GridItem>
+      <GridItem
+        marginLeft={1}
+        marginRight={8}
+        marginTop={8}
+        marginBottom={1}
+        p={4}
+        colSpan={2}
+        bg="white"
+        borderRadius="2xl"
+        boxShadow="lg"
+      >
+        <Tab2 />
+      </GridItem>
+      <GridItem
+        marginLeft={8}
+        marginRight={8}
+        marginTop={1}
+        marginBottom={8}
+        p={4}
+        colSpan={4}
+        bg="white"
+        borderRadius="2xl"
+        boxShadow="lg"
+      >
+        <Tab3 />
+      </GridItem>
+    </Grid>
   );
 };
 

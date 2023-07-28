@@ -4,6 +4,9 @@ import { Outlet } from "react-router-dom";
 
 import Header from "src/components/Header";
 import SideBar from "src/components/SideBar";
+import HeaderProjects from "./HeaderProjects";
+import HeaderSettings from "./HeaderSettings";
+import { useState } from "react";
 
 function DashboardLayout() {
   return (
@@ -17,8 +20,6 @@ function DashboardLayout() {
       h="100vh"
     >
       <GridItem gridArea="nav">
-        {" "}
-        {/* Add background color to see the navbar area */}
         <Header />
       </GridItem>
       <GridItem gridArea="sidebar">
