@@ -38,7 +38,11 @@ function DashboardLayout() {
       <GridItem gridArea="sidebar">
         <SideBar />
       </GridItem>
-      <GridItem gridArea="main" backgroundColor="#f0f5fa">
+      <GridItem
+        gridArea="main"
+        backgroundColor="#f0f5fa"
+        overflowY="auto" // Set main section as scrollable
+      >
         <Outlet />
       </GridItem>
     </Grid>
