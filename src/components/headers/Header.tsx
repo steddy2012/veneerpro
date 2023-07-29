@@ -1,7 +1,6 @@
 import { HStack, Image, Spacer, Text } from "@chakra-ui/react";
 
 import { useLocation } from "react-router-dom";
-import ColorModeSwitch from "../ColorModeSwitch";
 
 const Header = () => {
   const { pathname } = useLocation(); // this line uses the pathname in the url to highlight the sidebar tabs: /dashboard/overview. if it matches it highlights
@@ -23,7 +22,6 @@ const Header = () => {
         </Text>
       </HStack>
       <Spacer />
-      <ColorModeSwitch />
     </HStack>
   );
 };
