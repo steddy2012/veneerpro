@@ -2,16 +2,16 @@ import { Routes, Route } from "react-router-dom";
 
 import DashboardLayout from "src/components/DashboardLayout";
 
-import Overview from "./Overview";
-import Calculator from "./Calculator";
-import Reports from "./Reports";
-import ProjectIncomplete from "./projectPages/ProjectIncomplete";
-import ProjectCompleted from "./projectPages/ProjectCompleted";
-import UserProfile from "./settingsPages/UserProfile";
-import CompanyProfile from "./settingsPages/CompanyProfile";
-import Team from "./settingsPages/Team";
-import Subscriptions from "./settingsPages/Subscriptions";
-import Purchases from "./settingsPages/Purchases";
+import Overview from "../dashboardPages/Overview";
+import Calculator from "../dashboardPages/Calculator";
+import Reports from "../dashboardPages/Reports";
+import ProjectIncomplete from "../dashboardPages/projectPages/ProjectIncomplete";
+import ProjectCompleted from "../dashboardPages/projectPages/ProjectCompleted";
+import UserProfile from "../dashboardPages/settingsPages/UserProfile";
+import CompanyProfile from "../dashboardPages/settingsPages/CompanyProfile";
+import Team from "../dashboardPages/settingsPages/Team";
+import Subscriptions from "../dashboardPages/settingsPages/Subscriptions";
+import Purchases from "../dashboardPages/settingsPages/Purchases";
 
 // <Route path='/' element={<DashboardLayout />}> this line is the layout for the dashboard
 // Did it this way b/c whenever clicking on a sidebar link the entire dashboard doesnt refresh/change only the content of the page will change
@@ -19,7 +19,19 @@ import Purchases from "./settingsPages/Purchases";
 // When wrapping all other routes with <Route path='/' element={<DashboardLayout />}> it will show all other routes inside of the layout.
 // It shows it in the <Outlet /> component inside the DashboardLayout component.
 
-const Dashboard = () => {
+interface TokenData {
+  /* Define the structure of your token data here */
+  // For example:
+  id: number;
+  email: string;
+  // Add other properties from your actual token data
+}
+
+interface DashboardProps {
+  token: TokenData;
+}
+
+const Dashboard: React.FC<DashboardProps> = ({ token }) => {
   return (
     <Routes>
       <Route path="/" element={<DashboardLayout />}>

@@ -1,4 +1,13 @@
-import { Divider, Flex, Text, Heading, Avatar, Image } from "@chakra-ui/react";
+import {
+  Divider,
+  Flex,
+  Text,
+  Heading,
+  Avatar,
+  Image,
+  Box,
+  Spacer,
+} from "@chakra-ui/react";
 import logo from "../assets/logoSquare.webp";
 import logoRectangle from "../assets/logoRectangle.webp";
 import {
@@ -9,6 +18,7 @@ import {
   BiCog,
 } from "react-icons/bi";
 import SBItem from "./SBItem";
+import LogoutButton from "./LogoutButton";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -87,14 +97,21 @@ const SideBar = () => {
       </Flex>
       <Flex p="5%" flexDir="column" w="100%" alignItems="flex-start" mb={4}>
         <Divider display="flex" />
-        <Flex mt={4} align="center">
+        <Flex mt={4} align="center" w="100%">
+          {/* Image on the left */}
           <Avatar size="sm" src={logo} />
-          <Flex flexDir="column" ml={4} display="flex">
+
+          {/* Name and user type in the middle */}
+          <Box ml={4}>
             <Heading as="h3" size="sm">
               Stefano C
             </Heading>
             <Text color="grey">Admin</Text>
-          </Flex>
+          </Box>
+
+          {/* Logout button on the right */}
+          <Spacer />
+          <LogoutButton />
         </Flex>
       </Flex>
     </Flex>

@@ -43,7 +43,7 @@ export default function CallToActionWithAnnotation() {
             alignSelf={"center"}
             position={"relative"}
           >
-            <Link to="/dashboard/overview">
+            <Link to="/login">
               <Button
                 colorScheme={"blue"}
                 bg={"blue.400"}
