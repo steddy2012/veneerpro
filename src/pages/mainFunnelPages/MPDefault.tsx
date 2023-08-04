@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Box,
   Heading,
@@ -11,9 +9,8 @@ import {
   useColorModeValue,
   createIcon,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 
-export default function CallToActionWithAnnotation() {
+const MPDefault = () => {
   return (
     <>
       <Container maxW={"3xl"}>
@@ -36,55 +33,11 @@ export default function CallToActionWithAnnotation() {
           <Text color={"gray.500"}>
             Change the way you calculate costs, and save hundres of manhours.
           </Text>
-          <Stack
-            direction={"column"}
-            spacing={3}
-            align={"center"}
-            alignSelf={"center"}
-            position={"relative"}
-          >
-            <Link to="/login">
-              <Button
-                colorScheme={"blue"}
-                bg={"blue.400"}
-                rounded={"full"}
-                px={6}
-                _hover={{
-                  bg: "blue.500",
-                }}
-              >
-                Get Started
-              </Button>
-            </Link>
-            <Button variant={"link"} colorScheme={"blue"} size={"sm"}>
-              Learn more
-            </Button>
-            <Box>
-              <Icon
-                as={Arrow}
-                color={useColorModeValue("gray.800", "gray.300")}
-                w={71}
-                position={"absolute"}
-                right={-71}
-                top={"10px"}
-              />
-              <Text
-                fontSize={"lg"}
-                fontFamily={"Caveat"}
-                position={"absolute"}
-                right={"-125px"}
-                top={"-15px"}
-                transform={"rotate(10deg)"}
-              >
-                Starting at $150/mo
-              </Text>
-            </Box>
-          </Stack>
         </Stack>
       </Container>
     </>
   );
-}
+};
 
 const Arrow = createIcon({
   displayName: "Arrow",
@@ -98,3 +51,5 @@ const Arrow = createIcon({
     />
   ),
 });
+
+export default MPDefault;

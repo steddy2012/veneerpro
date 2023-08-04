@@ -1,9 +1,9 @@
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import Dashboard from "src/pages/website/Dashboard";
-import MainFunnel from "./pages/website/MainFunnel";
 import LoginPage from "./pages/website/LoginPage";
 import SignUpPage from "./pages/website/SignUpPage";
 import { useEffect, useState } from "react";
+import MainPage from "./pages/website/MainPage";
 
 // path is the url path and element is just a react component, should be the from the pages folder
 
@@ -34,7 +34,7 @@ const App: React.FC = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<MainFunnel />} />
+      <Route path="/*" element={<MainPage />} />
       <Route path="/login" element={<LoginPage setToken={setToken} />} />
       <Route path="/signup" element={<SignUpPage />} />
 

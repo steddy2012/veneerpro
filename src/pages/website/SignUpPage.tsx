@@ -44,8 +44,6 @@ const SignUpPage: React.FC = () => {
     phone: "",
   });
 
-  console.log(formData);
-
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -168,14 +166,14 @@ const SignUpPage: React.FC = () => {
                 Sign up
               </Button>
             </Stack>
+            <Stack spacing={5} direction="row">
+              <Checkbox colorScheme="blue" isRequired></Checkbox>
+              <Text align={"center"} ml={-3}>
+                Agree to our <Link to="/ToS">Terms of Service</Link> and{" "}
+                <Link to="/privacyPolicy">Privacy Policy</Link>
+              </Text>
+            </Stack>
           </form>
-          <Stack spacing={5} direction="row">
-            <Checkbox colorScheme="blue" isRequired></Checkbox>
-            <Text align={"center"}>
-              Agree to our <Link to="/ToS">Terms of Service</Link> and{" "}
-              <Link to="/privacyPolicy">Privacy Policy</Link>
-            </Text>
-          </Stack>
           <Text align={"center"}>
             Already a user? <Link to="/login">Login</Link>
           </Text>

@@ -35,8 +35,6 @@ const LoginPage: React.FC<LoginProps> = ({ setToken }) => {
     password: "",
   });
 
-  console.log(formData);
-
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setFormData((prevFormData) => {
       return {
@@ -56,7 +54,6 @@ const LoginPage: React.FC<LoginProps> = ({ setToken }) => {
       });
 
       if (error) throw error;
-      console.log(data);
       setToken(data as unknown as TokenData);
       navigate("/dashboard/overview");
     } catch (error) {

@@ -1,18 +1,26 @@
 import React from "react";
 import { Icon, Link, Menu, MenuButton } from "@chakra-ui/react";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BiLogOut } from "react-icons/bi"; // Replace this with the appropriate logout icon
+import { supabase } from "src/services/client";
 
-const LogoutButton: React.FC = ({}) => {
+const LogoutButton: React.FC = () => {
   const navigate = useNavigate();
 
-  function handleLogout() {
-    console.log("Logging out and removing token...");
-    sessionStorage.removeItem("token");
-    setTimeout(() => {
-      console.log("Navigating to login page...");
-      navigate("/login");
-    }, 500);
+  async function handleLogout() {
+    try {
+      console.log("Logging out...");
+      const { error } = await supabase.auth.signOut();
+
+      if (error) {
+        console.error("Error signing out:", (error as Error).message);
+      } else {
+        console.log("Successfully signed out!");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error("Error signing out:", (error as Error).message);
+    }
   }
 
   return (
